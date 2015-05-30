@@ -2,23 +2,16 @@
 <persistence version="2.1"
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="freelancer-ejb">
-		<jta-data-source>java:jboss/datasources/freelancerDS</jta-data-source>
-		<class>domain.Admin</class>
-		<class>domain.Application</class>
-		<class>domain.ApplicationId</class>
-		<class>domain.EvalFreelancer</class>
-		<class>domain.EvalJobOwner</class>
-		<class>domain.Evaluation</class>
-		<class>domain.EvaluationId</class>
+	<persistence-unit name="freelance-ejb">
+		<jta-data-source>java:jboss/datasources/freelancer-DS</jta-data-source>
 		<class>domain.Freelancer</class>
-		<class>domain.Job</class>
 		<class>domain.JobOwner</class>
-		<class>domain.Project</class>
 		<class>domain.User</class>
 		<properties>
 			<property name="javax.persistence.schema-generation.database.action"
 				value="drop-and-create" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
 		</properties>
 	</persistence-unit>
 </persistence>

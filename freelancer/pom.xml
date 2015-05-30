@@ -4,9 +4,10 @@
   <artifactId>freelancer</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
+  <name>Freelancer</name>
+  
   <modules>
-
-  <module>freelancer-ejb</module>
-  <module>freelancer-web</module>
+  	<module>freelancer-ejb</module>
+  	<module>freelancer-web</module>
   </modules>
 </project>
