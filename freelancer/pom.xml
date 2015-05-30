@@ -5,8 +5,8 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-  	<module>freelance-ejb</module>
-  	<module>freelancer-web</module>
-  	<module>freelancer-ejb</module>
+
+  <module>freelancer-ejb</module>
+  <module>freelancer-web</module>
   </modules>
 </project>
