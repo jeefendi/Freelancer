@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -22,13 +23,12 @@ public class Job implements Serializable {
 	private Integer id;
 	private String title;
 	private String description;
-	private Boolean isOpenForAppliance;
-	private Boolean isCompleted;
+	private Boolean isOpen;
 	private Date dateOfSubmission;
-	private Date dateOfClosure;
-	private Date estimatedCompletionDate;
 
 	private List<Application> applications;
+	private Project project;
+	private List<RequiredLevel> requiredLevels;
 
 	public Job() {
 		super();
@@ -60,20 +60,12 @@ public class Job implements Serializable {
 		this.description = description;
 	}
 
-	public Boolean getIsOpenForAppliance() {
-		return this.isOpenForAppliance;
+	public Boolean getIsOpen() {
+		return isOpen;
 	}
 
-	public void setIsOpenForAppliance(Boolean isOpenForAppliance) {
-		this.isOpenForAppliance = isOpenForAppliance;
-	}
-
-	public Boolean getIsCompleted() {
-		return this.isCompleted;
-	}
-
-	public void setIsCompleted(Boolean isCompleted) {
-		this.isCompleted = isCompleted;
+	public void setIsOpen(Boolean isOpen) {
+		this.isOpen = isOpen;
 	}
 
 	public Date getDateOfSubmission() {
@@ -84,22 +76,6 @@ public class Job implements Serializable {
 		this.dateOfSubmission = dateOfSubmission;
 	}
 
-	public Date getDateOfClosure() {
-		return this.dateOfClosure;
-	}
-
-	public void setDateOfClosure(Date dateOfClosure) {
-		this.dateOfClosure = dateOfClosure;
-	}
-
-	public Date getEstimatedCompletionDate() {
-		return this.estimatedCompletionDate;
-	}
-
-	public void setEstimatedCompletionDate(Date estimatedCompletionDate) {
-		this.estimatedCompletionDate = estimatedCompletionDate;
-	}
-
 	@OneToMany(mappedBy = "job")
 	public List<Application> getApplications() {
 		return applications;
@@ -107,6 +83,24 @@ public class Job implements Serializable {
 
 	public void setApplications(List<Application> applications) {
 		this.applications = applications;
+	}
+
+	@ManyToOne
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
+	@OneToMany(mappedBy = "job")
+	public List<RequiredLevel> getRequiredLevels() {
+		return requiredLevels;
+	}
+
+	public void setRequiredLevels(List<RequiredLevel> requiredLevels) {
+		this.requiredLevels = requiredLevels;
 	}
 
 }

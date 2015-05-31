@@ -15,7 +15,7 @@ public class ApplicationId implements Serializable {
 
 	private Integer freelancerId;
 	private Integer jobId;
-	private Date date;
+	private Date applicationDate;
 
 	public ApplicationId() {
 	}
@@ -23,7 +23,7 @@ public class ApplicationId implements Serializable {
 	public ApplicationId(Integer freelancerId, Integer jobId, Date date) {
 		this.freelancerId = freelancerId;
 		this.jobId = jobId;
-		this.date = date;
+		this.applicationDate = date;
 	}
 
 	public Integer getFreelancerId() {
@@ -43,18 +43,18 @@ public class ApplicationId implements Serializable {
 	}
 
 	public Date getDate() {
-		return date;
+		return applicationDate;
 	}
 
 	public void setDate(Date date) {
-		this.date = date;
+		this.applicationDate = date;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + ((applicationDate == null) ? 0 : applicationDate.hashCode());
 		result = prime * result
 				+ ((freelancerId == null) ? 0 : freelancerId.hashCode());
 		result = prime * result + ((jobId == null) ? 0 : jobId.hashCode());
@@ -70,10 +70,10 @@ public class ApplicationId implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ApplicationId other = (ApplicationId) obj;
-		if (date == null) {
-			if (other.date != null)
+		if (applicationDate == null) {
+			if (other.applicationDate != null)
 				return false;
-		} else if (!date.equals(other.date))
+		} else if (!applicationDate.equals(other.applicationDate))
 			return false;
 		if (freelancerId == null) {
 			if (other.freelancerId != null)

@@ -6,6 +6,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  * Entity implementation class for Entity: Application
@@ -21,6 +22,7 @@ public class Application implements Serializable {
 
 	private Freelancer freelancer;
 	private Job job;
+	private Assignment assignment;
 
 	public Application() {
 		super();
@@ -61,6 +63,15 @@ public class Application implements Serializable {
 
 	public void setJob(Job job) {
 		this.job = job;
+	}
+
+	@OneToOne
+	public Assignment getAssignment() {
+		return assignment;
+	}
+
+	public void setAssignment(Assignment assignment) {
+		this.assignment = assignment;
 	}
 
 }

@@ -1,74 +1,102 @@
 package domain;
 
 import java.io.Serializable;
-import java.lang.Boolean;
-import java.lang.Integer;
-import java.lang.String;
 import java.util.Date;
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  * Entity implementation class for Entity: Project
  *
  */
 @Entity
-
 public class Project implements Serializable {
 
-	
-	private Integer id;
-	private String Titre;
-	private String Description;
-	private Boolean ouvert;
-	private Date dateDepot;
-	private Date dateFermeture;
 	private static final long serialVersionUID = 1L;
+
+	private Integer id;
+	private String title;
+	private String description;
+	private Boolean isOpen;
+	private Date introductionDate;
+	private Date closureDate;
+
+	private JobOwner jobOwner;
+	private List<Job> jobs;
 
 	public Project() {
 		super();
-	}   
-	@Id    
+	}
+
+	@Id
 	public Integer getId() {
 		return this.id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
-	}   
-	public String getTitre() {
-		return this.Titre;
 	}
 
-	public void setTitre(String Titre) {
-		this.Titre = Titre;
-	}   
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	public String getDescription() {
-		return this.Description;
+		return description;
 	}
 
-	public void setDescription(String Description) {
-		this.Description = Description;
-	}   
-	public Boolean getOuvert() {
-		return this.ouvert;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public void setOuvert(Boolean ouvert) {
-		this.ouvert = ouvert;
-	}   
-	public Date getDateDepot() {
-		return this.dateDepot;
+	public Boolean getIsOpen() {
+		return isOpen;
 	}
 
-	public void setDateDepot(Date dateDepot) {
-		this.dateDepot = dateDepot;
-	}   
-	public Date getDateFermeture() {
-		return this.dateFermeture;
+	public void setIsOpen(Boolean isOpen) {
+		this.isOpen = isOpen;
 	}
 
-	public void setDateFermeture(Date dateFermeture) {
-		this.dateFermeture = dateFermeture;
+	public Date getIntroductionDate() {
+		return this.introductionDate;
 	}
-   
+
+	public void setIntroductionDate(Date introductionDate) {
+		this.introductionDate = introductionDate;
+	}
+
+	public Date getClosureDate() {
+		return this.closureDate;
+	}
+
+	public void setClosureDate(Date closureDate) {
+		this.closureDate = closureDate;
+	}
+
+	@ManyToOne
+	public JobOwner getJobOwner() {
+		return jobOwner;
+	}
+
+	public void setJobOwner(JobOwner jobOwner) {
+		this.jobOwner = jobOwner;
+	}
+
+	@OneToMany(mappedBy = "project")
+	public List<Job> getJobs() {
+		return jobs;
+	}
+
+	public void setJobs(List<Job> jobs) {
+		this.jobs = jobs;
+	}
+
 }

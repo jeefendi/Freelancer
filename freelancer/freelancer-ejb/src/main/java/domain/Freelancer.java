@@ -19,12 +19,22 @@ public class Freelancer extends User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Evaluation evaluation;
+	private String cvFilePath;
 
+	private Evaluation evaluation;
 	private List<Application> applications;
+	private List<Qualification> qualifications;
 
 	public Freelancer() {
 		super();
+	}
+
+	public String getCvFilePath() {
+		return cvFilePath;
+	}
+
+	public void setCvFilePath(String cvFilePath) {
+		this.cvFilePath = cvFilePath;
 	}
 
 	@OneToOne
@@ -43,6 +53,15 @@ public class Freelancer extends User implements Serializable {
 
 	public void setApplications(List<Application> applications) {
 		this.applications = applications;
+	}
+
+	@OneToMany(mappedBy = "freelancer")
+	public List<Qualification> getQualifications() {
+		return qualifications;
+	}
+
+	public void setQualifications(List<Qualification> qualifications) {
+		this.qualifications = qualifications;
 	}
 
 }

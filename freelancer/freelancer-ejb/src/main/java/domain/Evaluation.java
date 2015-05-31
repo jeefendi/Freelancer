@@ -5,7 +5,8 @@ import java.util.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * Entity implementation class for Entity: Evaluation
@@ -62,7 +63,8 @@ public class Evaluation implements Serializable {
 		this.dateOfEval = dateOfEval;
 	}
 
-	@OneToOne(mappedBy = "evaluation")
+	@ManyToOne
+	@JoinColumn(name = "idFreelancer", referencedColumnName = "id", insertable = false, updatable = false)
 	public Freelancer getFreelancer() {
 		return freelancer;
 	}
@@ -71,7 +73,8 @@ public class Evaluation implements Serializable {
 		this.freelancer = freelancer;
 	}
 
-	@OneToOne(mappedBy = "evaluation")
+	@ManyToOne
+	@JoinColumn(name = "idJobOwner", referencedColumnName = "id", insertable = false, updatable = false)
 	public JobOwner getJobOwner() {
 		return jobOwner;
 	}
