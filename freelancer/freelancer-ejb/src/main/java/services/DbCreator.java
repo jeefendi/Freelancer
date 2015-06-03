@@ -6,6 +6,8 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import domain.Freelancer;
+
 /**
  * Session Bean implementation class DbCreator
  */
@@ -24,5 +26,12 @@ public class DbCreator {
 
 	@PostConstruct
 	public void initDb() {
+		Freelancer freelancer = new Freelancer();
+		freelancer.setEmail("testmail@domain.net");
+		freelancer.setFirstName("MyFirstName");
+		freelancer.setLastName("MyLastName");
+		freelancer.setLogin("login");
+		freelancer.setPassword("pass");
+		entityManager.persist(freelancer);
 	}
 }
