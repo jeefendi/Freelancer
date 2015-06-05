@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/ico" href="#{request.contextPath}/resources/favicon.ico"/>
+	<link rel="stylesheet"
+		href="#{request.contextPath}/resources/themes/css/career.css" />
+	<link rel="STYLESHEET" type="text/css"
+		href="#{request.contextPath}/resources/themes/css/contact.css" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/themes/js/gen_validatorv31.js"></script>
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/themes/js/fg_captcha_validator.js"></script>
+	<link href="http://fonts.googleapis.com/css?family=Engagement"
+		rel="stylesheet" type="text/css" />
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+		type="text/javascript" charset="utf-8"></script>
+	<script src="themes/js/jquery.uniform.min.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+      $(function(){
+        $("input:checkbox, input:radio, input:file, select").uniform();
+      });
+</script>
+	<title>Esprit | GL</title>
+
+	<link rel="stylesheet" id="style-css-css"
+		href="#{request.contextPath}/resources/wp-content/themes/mars/styles/main.css?ver=3.5.1"
+		type="text/css" media="all" />
+</h:head>
+<h:body>
+	<div id="container">
+		<header id="masthead" class="site-header container navbar"
+			role="banner">
+			<div class="site-branding">
+				<h1 class="site-title">
+					<a href="" title="MARS" rel="home"><img
+						src="#{request.contextPath}/resources/themes/images/logo.png" /></a>
+				</h1>
+			</div>
+
+		</header>
+
+
+		<div id="main">
+			<div id="navigation">
+
+
+				<div id="main" class="site-main">
+					<div id="primary" class="content-area">
+
+						<div id="content">
+							<ui:insert name="pageContent" />
+
+						</div>
+					</div>
+				</div>
+
+
+
+
+			</div>
+
+		</div>
+		<hr></hr>
+
+		<footer id="colophon" class="site-footer container" role="contentinfo">
+			<div class="site-info row">
+				<div class="span6">
+					<small><a href="#">About US</a>. </small><br />
+				</div>
+				<div class="span6 footer-container">
+					<div class="pull-left footer-socials">
+						<a href="#" target="_blank"><img
+							src="#{request.contextPath}/resources/wp-content/themes/mars/img/linkedin.png" /></a>
+						<a href="#" target="_blank"><img
+							src="#{request.contextPath}/resources/wp-content/themes/mars/img/twitter.png" /></a>
+					</div>
+					<div class="backtotop">
+						<small>GL | Projet Freelancer.</small>
+						<div class="clearfix"></div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/wp-content/themes/mars/js/bootstrap.min11a8.js?ver=20120206" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/wp-content/themes/mars/js/jquery.colorbox-min11a8.js?ver=20120206" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/wp-content/themes/mars/js/tbhd.min11a8.js?ver=20120206" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/wp-content/themes/mars/js/site11a8.js?ver=20120206" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/wp-content/themes/mars/js/skip-link-focus-fix08e0.js?ver=20130115" />
+	<script>
+jQuery('.carousel').carousel({
+    interval: 5000
+});
+</script>
+</h:body>
+</html>

@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/generaltemplate.xhtml">
+	<h:head>
+		<meta name="description"
+			content="MARS is the international executive search firm in technology, with an extensive track record of delivery across EMEA, Asia Pac and Americas. " />
+		<link rel="stylesheet" id="style-css-css"
+			href="#{request.contextPath}/resources/wp-content/themes/mars/styles/main.css?ver=3.5.1"
+			type="text/css" media="all" />
+		<script type="text/javascript"
+			src="#{request.contextPath}/resources/wp-content/themes/mars/js/jmars.js?ver=1.8.3"></script>
+		<script type="text/javascript"
+			src="#{request.contextPath}/resources/wp-content/themes/mars/js/j2mars.js?ver=3.5.1"></script>
+	</h:head>
+	<ui:define name="pageContent">
+		<title>Inscription</title>
+		<div class="background-blue page-intro intro-blue"></div>
+		<br />
+		<div>
+			<form action="#">
+				<div id="content" class="site-content container" role="main">
+					<div class="row">
+						<div class="span6" style="text-align: center;">
+							<h4>
+								<a href="#">Inscription</a>
+							</h4>
+							<img
+								src="#{request.contextPath}/resources/themes/images/cadena.jpg"
+								style="border: 0; text-align: center;" />
+						</div>
+						<div class="span6">
+							<fieldset>
+								<legend>Authentification</legend>
+								<p>Please use a valid email and password</p>
+								<input type="text" class="sign-up-input"
+									placeholder="What's your email?" name="email"
+									autofocus="autofocus" /> <br /> <input type="password"
+									class="sign-up-input" placeholder="what's your password"
+									name="password" /><br /> <input
+									src="#{request.contextPath}/resources/themes/images/connexion.png"
+									type="image" Value="submit"
+									style="border: 0; text-align: center;" />
+							</fieldset>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</ui:define>
+
+</ui:composition>

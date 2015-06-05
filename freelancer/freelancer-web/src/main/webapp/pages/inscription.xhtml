@@ -1,0 +1,131 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/generaltemplate.xhtml">
+
+	<ui:define name="pageContent">
+		<title>Inscription</title>
+		<div class="background-blue page-intro intro-blue">
+			<div class="container">
+				<div class="row">
+					<div class="span4">
+						<h2 class="left-title">Let us know about you</h2>
+					</div>
+					<div class="span8 intro-text"></div>
+				</div>
+			</div>
+		</div>
+		<div class="container" style="text-align: center;">
+			<h4>
+				Please fill our below form to submit your CV.<br />When an
+				opportunity arises, our HR department will keep in touch with you.<br />Thank
+				you for submitting your resume.
+			</h4>
+			<br />
+			<article>
+				<form action="#" id="contactus" enctype="multipart/form-data"
+					accept-charset="UTF-8">
+					<fieldset>
+						<legend>Next Freelancer Move</legend>
+						<div class="short_explanation">* required fields</div>
+						<div class="container">
+							<label>First Name*: </label> <input type="text" name="FirstName"
+								id="name" value="" maxlength="50" /><br /> <span
+								id="contactus_name_errorloc" class="error"></span>
+						</div>
+						<div class="container">
+							<label>Last Name*: </label> <input type="text" name="LastName"
+								id="name" value='' maxlength="50" /><br /> <span
+								id="contactus_name_errorloc" class="error"></span>
+						</div>
+						<div class="container">
+							<label>Password*: </label><input type="text" name="Password"
+								id="name" value="" maxlength="50" /><br /> <span
+								id="contactus_name_errorloc" class="error"></span>
+						</div>
+						<div class="container">
+							<label>Year of experience*: </label> <input type="text"
+								name="year" id="name" value="" maxlength="50" /><br /> <span
+								id="contactus_name_errorloc" class="error"></span>
+						</div>
+						<div class="container">
+							<label>Email Address*:</label> <input type="text" name="email"
+								id="email" value="" maxlength="50" /><br /> <span
+								id="contactus_email_errorloc" class="error"></span>
+						</div>
+
+						<div class="container">
+							<table>
+								<tr>
+									<td>Role:</td>
+
+									<td><input type="radio" value="Freelancer" name="role"
+										id="freelancer" onclick="javascript:check()" checked="checked" />Freelancer</td>
+									<td><input type="radio" value="JobOwner" name="role"
+										id="jobowner" onclick="javascript:check()" />Job Owner</td>
+								</tr>
+							</table>
+						</div>
+
+						<div id="cv" class='container'>
+							<p>
+								<label for="myFile">Curriculum vitae</label> <input type="file"
+									id="myFile" name="myFile" />
+							</p>
+						</div>
+						<input
+							src="#{request.contextPath}/resources/themes/images/envoi.png"
+							type="image" Value="submit"
+							style="border: 0; text-align: center;" />
+					</fieldset>
+				</form>
+				<script type='text/javascript'>
+
+
+    var frmvalidator  = new Validator("contactus");
+    frmvalidator.EnableOnPageErrorDisplay();
+    frmvalidator.EnableMsgsTogether();
+    frmvalidator.addValidation("name","req","Please provide your name");
+
+    frmvalidator.addValidation("email","req","Please provide your email address");
+
+    frmvalidator.addValidation("email","email","Please provide a valid email address");
+
+    frmvalidator.addValidation("message","maxlen=2048","The message is too long!(more than 2KB!)");
+
+    frmvalidator.addValidation("photo","file_extn=jpg;jpeg;gif;png;bmp","Upload images only. Supported file types are: jpg,gif,png,bmp");
+
+    frmvalidator.addValidation("scaptcha","req","Please enter the code in the image above");
+
+    document.forms['contactus'].scaptcha.validator
+      = new FG_CaptchaValidator(document.forms['contactus'].scaptcha,
+                    document.images['scaptcha_img']);
+
+    function SCaptcha_Validate()
+    {
+        return document.forms['contactus'].scaptcha.validator.validate();
+    }
+
+    frmvalidator.setAddnlValidationFunction("SCaptcha_Validate");
+
+    function refresh_captcha_img()
+    {
+        var img = document.images['scaptcha_img'];
+        img.src = img.src.substring(0,img.src.lastIndexOf("?")) + "?rand="+Math.random()*1000;
+    }
+	function check() {
+  if   (document.getElementById("jobowner").checked == true)
+    document.getElementById("cv").style.visibility = "hidden";
+	 if   (document.getElementById("freelancer").checked == true)
+	 document.getElementById("cv").style.visibility = "visible";
+ 
+}
+
+
+</script>
+			</article>
+		</div>
+	</ui:define>
+
+</ui:composition>

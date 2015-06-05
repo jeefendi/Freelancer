@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/freetemplate.xhtml">
+
+	<ui:define name="pageContent">
+		<title>About Us</title>
+		<div class="background-blue page-intro intro-blue" id="whatwedo">
+			<div class="container">
+				<div class="row">
+					<div class="span4">
+						<h2 class="left-title">Who We Are?</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section>
+			<div class="page-header white-header" id="BusinessNetwork">
+				<div class="container">
+					<h2 class="left-title">3C-info2</h2>
+					<div class="dropdown-arrow arrow-white">
+						<div class="arrow-container blue-container">
+							<img
+								src="#{request.contextPath}/resources/themes/images/upblue.png"
+								class="arrow-up" /> <img
+								src="#{request.contextPath}/resources/themes/images/downblue.png"
+								class="arrow-down" />
+						</div>
+						<div class="arrow-container white-container">
+							<img
+								src="#{request.contextPath}/resources/themes/images/upwhite.png"
+								class="arrow-up" /> <img
+								src="#{request.contextPath}/resources/themes/images/downwhite.png"
+								class="arrow-down" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container identity">
+				<hgroup>
+					<h4>
+						>Projet Freelancer Realisé par:<br /> - Touhami Bechir <br /> -
+						Fendi Anis<br /> - Wassim Hammami
+					</h4>
+
+				</hgroup>
+			</div>
+		</section>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,109 @@
+.contact-container{
+        padding-bottom: 50px;
+}
+.talentbank-content .page-image .container-header h1{
+        margin-top: -80px;
+        color: #777777;
+}
+.talentbank-page .footer-socials{
+        top: 5px;
+}
+.talentbank-page .footer-socials img{
+        width: 40px;
+        padding-right: 30px;
+}
+.talentbank-page .header-social{
+        margin-top: 30px;
+}
+.talentbank-page .header-social img{
+        width: 40px;
+        padding-left: 30px;        
+}
+.talentbank-page .header-phone{
+        margin-top: 30px
+}
+.talentbank-page .site-title img{
+        width: 170px;
+}
+.header-contact-holder{
+        width: 375px;
+}
+.talentbank-page #testimonials{
+        margin-top: 30px;
+}
+.talentbank-page #contact{
+        margin-top: 30px;
+}
+.logo379{
+        width: 0px;
+        height: 0px;
+        padding: 10px;
+        background-image: url(../img/logo379.png);
+        background-position: left top;
+        display: inline-block;
+        position: relative;
+        top: 7px;
+        left: 2px;        
+}
+.link379:hover .logo379{
+        background-position: right top;
+}
+@media (max-width: 979px) and (min-width: 744px){
+    .talentbank-page .header-social {
+            position: relative;
+            top: 0px;
+            right: 0px;
+    }
+}
+@media (max-width: 743px){
+    .talentbank-page .container-header h1 br{
+            display: none;
+    }
+    .talentbank-content .page-image .container-header h1{
+            margin-top: 0px;
+    }
+    .talentbank-page .page-image .container-header{
+            position: relative;
+            background-color: #FFFFFF;
+            padding-top: 15px;
+            padding-bottom: 15px;
+    }
+    .talentbank-page .container-header h1{
+            white-space: normal;
+    }
+    .talentbank-page .navbar .btn-navbar{
+            padding: 15px 10px;
+    }
+    .talentbank-page .btn-navbar img{
+            position: relative;
+            top: -5px;
+    }
+    .talentbank-page .btn-navbar.collapsed img.contact-arrow-up{
+            display: none;
+    }    
+    .talentbank-page .btn-navbar img.contact-arrow-down{
+            display: none;
+    }
+    .talentbank-page .btn-navbar.collapsed img.contact-arrow-down{
+            display: inline;
+    }
+    .nav-collapse .nav > li.dropdown-phone-number{
+            padding: 15px;
+            font-weight: bold;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+            background-color: #f5f5f5;
+            background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+            background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+            background-repeat: repeat-x;
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+            border-bottom: 1px solid #777777;
+            margin: 0px;
+            color: #777777;
+    }    
+}

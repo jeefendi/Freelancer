@@ -31,7 +31,7 @@
 				<artifactId>wildfly-maven-plugin</artifactId>
 				<version>1.0.2.Final</version>
 				<configuration>
-					<port>9990</port>
+					<port>10090</port>
 					<filename>${project.artifactId}.jar</filename>
 				</configuration>
 			</plugin>
