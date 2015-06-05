@@ -64,4 +64,9 @@ public class Freelancer extends User implements Serializable {
 		this.qualifications = qualifications;
 	}
 
+	@Override
+	public String toString() {
+		return "Freelancer [cvFilePath=" + cvFilePath + "]" + super.toString();
+	}
+
 }
