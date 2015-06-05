@@ -5,11 +5,14 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Entity implementation class for Entity: Job
@@ -25,9 +28,10 @@ public class Job implements Serializable {
 	private String description;
 	private Boolean isOpen;
 	private Date dateOfSubmission;
+	private Date closureDate;
 
 	private List<Application> applications;
-	private Project project;
+	private JobOwner jobOwner;
 	private List<RequiredLevel> requiredLevels;
 
 	public Job() {
@@ -68,12 +72,22 @@ public class Job implements Serializable {
 		this.isOpen = isOpen;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getDateOfSubmission() {
 		return this.dateOfSubmission;
 	}
 
 	public void setDateOfSubmission(Date dateOfSubmission) {
 		this.dateOfSubmission = dateOfSubmission;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getClosureDate() {
+		return closureDate;
+	}
+
+	public void setClosureDate(Date closureDate) {
+		this.closureDate = closureDate;
 	}
 
 	@OneToMany(mappedBy = "job")
@@ -86,21 +100,28 @@ public class Job implements Serializable {
 	}
 
 	@ManyToOne
-	public Project getProject() {
-		return project;
+	public JobOwner getJobOwner() {
+		return jobOwner;
 	}
 
-	public void setProject(Project project) {
-		this.project = project;
+	public void setJobOwner(JobOwner jobOwner) {
+		this.jobOwner = jobOwner;
 	}
 
-	@OneToMany(mappedBy = "job")
+	@OneToMany(mappedBy = "job", fetch = FetchType.EAGER)
 	public List<RequiredLevel> getRequiredLevels() {
 		return requiredLevels;
 	}
 
 	public void setRequiredLevels(List<RequiredLevel> requiredLevels) {
 		this.requiredLevels = requiredLevels;
+	}
+
+	@Override
+	public String toString() {
+		return "Job [id=" + id + ", title=" + title + ", description="
+				+ description + ", isOpen=" + isOpen + ", dateOfSubmission="
+				+ dateOfSubmission + "]";
 	}
 
 }

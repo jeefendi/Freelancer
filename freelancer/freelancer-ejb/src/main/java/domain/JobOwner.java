@@ -3,6 +3,7 @@ package domain;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -21,7 +22,7 @@ public class JobOwner extends User implements Serializable {
 	private String companyName;
 	private String address;
 
-	private List<Project> projects;
+	private List<Job> jobs;
 	private List<Evaluation> evaluations;
 
 	public JobOwner() {
@@ -44,13 +45,13 @@ public class JobOwner extends User implements Serializable {
 		this.address = address;
 	}
 
-	@OneToMany(mappedBy = "jobOwner")
-	public List<Project> getProjects() {
-		return projects;
+	@OneToMany(mappedBy = "jobOwner", cascade = CascadeType.MERGE)
+	public List<Job> getJobs() {
+		return jobs;
 	}
 
-	public void setProjects(List<Project> projects) {
-		this.projects = projects;
+	public void setJobs(List<Job> jobs) {
+		this.jobs = jobs;
 	}
 
 	@OneToMany(mappedBy = "jobOwner")
