@@ -27,6 +27,15 @@ public class User implements Serializable {
 		super();
 	}
 
+	public User(String lastName, String firstName, String email, String login,
+			String password) {
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.email = email;
+		this.login = login;
+		this.password = password;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {

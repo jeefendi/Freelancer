@@ -8,5 +8,5 @@ import domain.Application;
 
 @Remote
 public interface ApplicationMgtSvcRemote {
-	List<Application> getAllOpenJobs();
+	List<Application> getApplications();
 }

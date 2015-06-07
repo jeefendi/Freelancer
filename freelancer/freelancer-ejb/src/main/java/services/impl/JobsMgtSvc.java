@@ -60,4 +60,9 @@ public class JobsMgtSvc implements JobsMgtSvcRemote, JobsMgtSvcLocal {
 		return jobs;
 	}
 
+	@Override
+	public Job addJob(Job job) {
+		return em.merge(job);
+	}
+
 }

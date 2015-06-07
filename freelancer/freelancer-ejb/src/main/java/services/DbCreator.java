@@ -10,6 +10,8 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import domain.Application;
+import domain.ApplicationId;
 import domain.Freelancer;
 import domain.Job;
 import domain.JobOwner;
@@ -113,6 +115,27 @@ public class DbCreator {
 		job1.setJobOwner(jobOwner1);
 		job1 = entityManager.merge(job1);
 		jobOwner1 = entityManager.merge(jobOwner1);
+
+		// freelancer anis
+		Freelancer anisfreelancer = new Freelancer(null, "fendi", "anis",
+				"anis1fendi@gmail.com", "anislogin", "pass");
+		anisfreelancer = entityManager.merge(anisfreelancer);
+
+		// freelancer anis candidat pour job2
+		Application application = new Application();
+		calendar.set(2015, 07, 22);
+		application.setApplicationId(new ApplicationId(anisfreelancer.getId(),
+				job2.getId(), (calendar.getTime())));
+		application.setFreelancer(anisfreelancer);
+		List<Application> anisappls = anisfreelancer.getApplications();
+		anisappls.add(application);
+		application.setJob(job2);
+		List<Application> job2appls = job2.getApplications();
+		System.out.println(job2appls);
+		job2appls.add(application);
+		application = entityManager.merge(application);
+		anisfreelancer = entityManager.merge(anisfreelancer);
+		job2 = entityManager.merge(job2);
 
 	}
 }

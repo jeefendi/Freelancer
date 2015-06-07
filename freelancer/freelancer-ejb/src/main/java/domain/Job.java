@@ -1,6 +1,7 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -92,6 +93,8 @@ public class Job implements Serializable {
 
 	@OneToMany(mappedBy = "job")
 	public List<Application> getApplications() {
+		if (this.applications == null)
+			applications = new ArrayList<Application>();
 		return applications;
 	}
 

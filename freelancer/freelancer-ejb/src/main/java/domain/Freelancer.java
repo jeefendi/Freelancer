@@ -1,6 +1,7 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -29,6 +30,12 @@ public class Freelancer extends User implements Serializable {
 		super();
 	}
 
+	public Freelancer(String cvFilePath, String lastName, String firstName,
+			String email, String login, String password) {
+		super(lastName, firstName, email, login, password);
+		this.cvFilePath = cvFilePath;
+	}
+
 	public String getCvFilePath() {
 		return cvFilePath;
 	}
@@ -48,6 +55,8 @@ public class Freelancer extends User implements Serializable {
 
 	@OneToMany(mappedBy = "freelancer")
 	public List<Application> getApplications() {
+		if (this.applications == null)
+			applications = new ArrayList<Application>();
 		return applications;
 	}
 

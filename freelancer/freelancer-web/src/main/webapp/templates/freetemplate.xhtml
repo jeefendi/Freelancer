@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -6,7 +6,8 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta charset="UTF-8" />
-	<link rel="icon" type="image/ico" href="#{request.contextPath}/resources/favicon.ico"/>
+	<link rel="icon" type="image/ico"
+		href="#{request.contextPath}/resources/favicon.ico" />
 	<link rel="stylesheet"
 		href="#{request.contextPath}/resources/themes/css/career.css" />
 	<link rel="STYLESHEET" type="text/css"
@@ -37,57 +38,44 @@
 	<div id="container">
 		<header id="masthead" class="site-header container navbar"
 			role="banner">
-			<div class="site-branding">
-				<h1 class="site-title">
-					<a href="" title="MARS" rel="home"><img
-						src="#{request.contextPath}/resources/themes/images/logo.png" /></a>
-				</h1>
-			</div>
-
+		<div class="site-branding">
+			<h1 class="site-title">
+				<a href="" title="MARS" rel="home"><img
+					src="#{request.contextPath}/resources/themes/images/logo.png" /></a>
+			</h1>
+		</div>
 		</header>
-
-
 		<div id="main">
 			<div id="navigation">
-
-
 				<div id="main" class="site-main">
 					<div id="primary" class="content-area">
-
-						<div id="content">
+						<div id="content" align="center">
 							<ui:insert name="pageContent" />
-
 						</div>
 					</div>
 				</div>
-
-
-
-
 			</div>
-
 		</div>
 		<hr></hr>
-
 		<footer id="colophon" class="site-footer container" role="contentinfo">
-			<div class="site-info row">
-				<div class="span6">
-					<small><a href="#">About US</a>. </small><br />
+		<div class="site-info row">
+			<div class="span6">
+				<small><a href="#">About US</a>. </small><br />
+			</div>
+			<div class="span6 footer-container">
+				<div class="pull-left footer-socials">
+					<a href="#" target="_blank"><img
+						src="#{request.contextPath}/resources/wp-content/themes/mars/img/linkedin.png" /></a>
+					<a href="#" target="_blank"><img
+						src="#{request.contextPath}/resources/wp-content/themes/mars/img/twitter.png" /></a>
 				</div>
-				<div class="span6 footer-container">
-					<div class="pull-left footer-socials">
-						<a href="#" target="_blank"><img
-							src="#{request.contextPath}/resources/wp-content/themes/mars/img/linkedin.png" /></a>
-						<a href="#" target="_blank"><img
-							src="#{request.contextPath}/resources/wp-content/themes/mars/img/twitter.png" /></a>
-					</div>
-					<div class="backtotop">
-						<small>GL | Projet Freelancer.</small>
-						<div class="clearfix"></div>
-					</div>
+				<div class="backtotop">
+					<small>GL | Projet Freelancer.</small>
 					<div class="clearfix"></div>
 				</div>
+				<div class="clearfix"></div>
 			</div>
+		</div>
 		</footer>
 	</div>
 	<script type="text/javascript"

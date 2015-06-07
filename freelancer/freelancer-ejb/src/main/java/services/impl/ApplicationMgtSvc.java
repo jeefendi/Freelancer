@@ -31,10 +31,10 @@ public class ApplicationMgtSvc implements ApplicationMgtSvcLocal,
 	}
 
 	@Override
-	public List<Application> getAllOpenJobs() {
+	public List<Application> getApplications() {
 		List<Application> applications = new ArrayList<Application>();
 		try {
-			String jpql = "select j from Job j";
+			String jpql = "select a from Application a";
 			TypedQuery<Application> typedQuery = em.createQuery(jpql,
 					Application.class);
 			applications = typedQuery.getResultList();

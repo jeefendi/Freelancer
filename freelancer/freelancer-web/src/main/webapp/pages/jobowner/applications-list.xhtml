@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+
+	<form>
+		<p:dataTable var="appl" value="#{AppsB.applications}"
+			sortMode="multiple style" tableStyle="table-layout:auto">
+			<!-- 			<p:column headerText="Id" sortBy="#{appl.id}"> -->
+			<!-- 				<h:outputText value="#{appl.id}" /> -->
+			<!-- 			</p:column> -->
+
+			<p:column headerText="Freelancer" sortBy="#{appl.freelancer.login}">
+				<h:outputText value="#{appl.freelancer.login}" />
+			</p:column>
+
+			<p:column headerText="Job" sortBy="#{appl.job.title}">
+				<h:outputText value="#{appl.job.title}" />
+			</p:column>
+
+			<!-- 			<p:column headerText="Compétences" -->
+			<!-- 				sortBy="#{JsB.getSkillsAsString(job)}"> -->
+			<!-- 				<h:outputText value="#{JsB.getSkillsAsString(job)}" /> -->
+			<!-- 			</p:column> -->
+
+			<!-- 			<p:column headerText="Date de Début" sortBy="#{job.dateOfSubmission}"> -->
+			<!-- 				<h:outputText value="#{JsB.getDate(job.dateOfSubmission)}" /> -->
+			<!-- 			</p:column> -->
+			<!-- 			<p:column headerText="Date de fin" sortBy="#{job.closureDate}"> -->
+			<!-- 				<h:outputText value="#{JsB.getDate(job.closureDate)}" /> -->
+			<!-- 			</p:column> -->
+		</p:dataTable>
+	</form>
+
+</body>
+</html>

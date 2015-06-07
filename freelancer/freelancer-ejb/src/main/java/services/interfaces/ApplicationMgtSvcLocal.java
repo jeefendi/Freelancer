@@ -8,5 +8,5 @@ import domain.Application;
 
 @Local
 public interface ApplicationMgtSvcLocal {
-	List<Application> getAllOpenJobs();
+	List<Application> getApplications();
 }

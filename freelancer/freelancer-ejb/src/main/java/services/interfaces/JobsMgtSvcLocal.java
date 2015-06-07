@@ -11,4 +11,6 @@ public interface JobsMgtSvcLocal {
 	List<Job> getAllJobs();
 
 	List<Job> getAvailableJobs();
+
+	Job addJob(Job job);
 }

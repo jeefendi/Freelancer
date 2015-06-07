@@ -26,6 +26,7 @@ public class Application implements Serializable {
 
 	public Application() {
 		super();
+		this.isActive = true;
 	}
 
 	@EmbeddedId
