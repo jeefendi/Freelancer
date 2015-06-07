@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import services.interfaces.FreelancerMgtSvcLocal;
-import services.interfaces.FreelancerMgtSvcRemote;
 import domain.Freelancer;
 
 /**
@@ -18,8 +17,7 @@ import domain.Freelancer;
  */
 @Stateless
 @LocalBean
-public class FreelancerMgtSvc implements FreelancerMgtSvcRemote,
-		FreelancerMgtSvcLocal {
+public class FreelancerMgtSvc implements FreelancerMgtSvcLocal {
 	@PersistenceContext
 	EntityManager em;
 

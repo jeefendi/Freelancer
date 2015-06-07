@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import services.interfaces.ApplicationMgtSvcLocal;
-import services.interfaces.ApplicationMgtSvcRemote;
 import domain.Application;
 
 /**
@@ -18,8 +17,7 @@ import domain.Application;
  */
 @Stateless
 @LocalBean
-public class ApplicationMgtSvc implements ApplicationMgtSvcLocal,
-		ApplicationMgtSvcRemote {
+public class ApplicationMgtSvc implements ApplicationMgtSvcLocal {
 	@PersistenceContext
 	EntityManager em;
 

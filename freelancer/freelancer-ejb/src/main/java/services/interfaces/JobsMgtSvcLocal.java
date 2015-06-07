@@ -13,4 +13,6 @@ public interface JobsMgtSvcLocal {
 	List<Job> getAvailableJobs();
 
 	Job addJob(Job job);
+
+	List<Job> GetJobsByJobOwnerId(Integer Id);
 }

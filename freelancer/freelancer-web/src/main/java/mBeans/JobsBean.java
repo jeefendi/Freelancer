@@ -9,6 +9,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import services.impl.JobsMgtSvc;
@@ -20,7 +21,8 @@ import domain.RequiredLevel;
 public class JobsBean {
 	@EJB
 	JobsMgtSvc svc;
-
+	@ManagedProperty(value = "#{lb}")
+	private LoginBean loginbean;
 	private List<Job> jobs = new ArrayList<Job>();
 
 	public JobsBean() {
@@ -35,9 +37,17 @@ public class JobsBean {
 		this.jobs = jobs;
 	}
 
+	public LoginBean getLoginbean() {
+		return loginbean;
+	}
+
+	public void setLoginbean(LoginBean loginbean) {
+		this.loginbean = loginbean;
+	}
+
 	@PostConstruct
 	public void init() {
-		jobs = svc.getAvailableJobs();
+		jobs = svc.GetJobsByJobOwnerId(loginbean.getUser().getId());
 	}
 
 	/*
@@ -64,4 +74,5 @@ public class JobsBean {
 		DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
 		return df.format(date);
 	}
+
 }

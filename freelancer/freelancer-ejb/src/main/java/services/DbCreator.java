@@ -38,13 +38,13 @@ public class DbCreator {
 	@PostConstruct
 	public void initDb() {
 		// Création freelancer1
-		Freelancer freelancer = new Freelancer();
-		freelancer.setEmail("testmail@domain.net");
-		freelancer.setFirstName("MyFirstName");
-		freelancer.setLastName("MyLastName");
-		freelancer.setLogin("login");
-		freelancer.setPassword("pass");
-		entityManager.persist(freelancer);
+		Freelancer freelancer1 = new Freelancer();
+		freelancer1.setEmail("testmail@domain.net");
+		freelancer1.setFirstName("MyFirstName");
+		freelancer1.setLastName("MyLastName");
+		freelancer1.setLogin("login");
+		freelancer1.setPassword("pass");
+		freelancer1 = entityManager.merge(freelancer1);
 
 		// Création Skill java
 		Skill skillJava = new Skill();
@@ -100,7 +100,7 @@ public class DbCreator {
 		reqlvl2.setSkill(skillSwing);
 		reqlvl2 = entityManager.merge(reqlvl2);
 
-		// création jobOwner1 pour job1
+		// création jobOwner1 pour job1 et job2
 		JobOwner jobOwner1 = new JobOwner();
 		jobOwner1.setAddress("22 Rue du Cherche Midi");
 		jobOwner1.setCompanyName("LaOoredoo");
@@ -111,9 +111,12 @@ public class DbCreator {
 		jobOwner1.setPassword("pass");
 		List<Job> jobs1 = new ArrayList<Job>();
 		jobs1.add(job1);
+		jobs1.add(job2);
 		jobOwner1.setJobs(jobs1);
+		job2.setJobOwner(jobOwner1);
 		job1.setJobOwner(jobOwner1);
 		job1 = entityManager.merge(job1);
+		job2 = entityManager.merge(job2);
 		jobOwner1 = entityManager.merge(jobOwner1);
 
 		// freelancer anis
@@ -136,6 +139,31 @@ public class DbCreator {
 		application = entityManager.merge(application);
 		anisfreelancer = entityManager.merge(anisfreelancer);
 		job2 = entityManager.merge(job2);
+
+		// jobowner2
+		JobOwner jobOwner2 = new JobOwner();
+		jobOwner2.setAddress("adressejo2");
+		jobOwner2.setCompanyName("jo2corp");
+		jobOwner2.setEmail("mail@jo2.net");
+		jobOwner2.setFirstName("joooooob");
+		jobOwner2.setLastName("Oooooooowner");
+		jobOwner2.setLogin("jo2");
+		jobOwner2.setPassword("pass");
+		jobOwner2 = entityManager.merge(jobOwner2);
+
+		// candidature freelancer1 pour Job2
+		Application application2 = new Application();
+		calendar.set(2015, 11, 2);
+		application2.setApplicationId(new ApplicationId(freelancer1.getId(),
+				job2.getId(), (calendar.getTime())));
+		application2.setFreelancer(freelancer1);
+		// List<Application> fr1appls = freelancer1.getApplications();
+		// fr1appls.add(application2);
+		application2.setJob(job2);
+		// job2.getApplications().add(application2);
+		application2 = entityManager.merge(application2);
+		freelancer1 = entityManager.merge(freelancer1);
+		// job2 = entityManager.merge(job2);
 
 	}
 }

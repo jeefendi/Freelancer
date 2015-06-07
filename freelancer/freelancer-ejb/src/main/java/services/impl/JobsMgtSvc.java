@@ -12,7 +12,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import services.interfaces.JobsMgtSvcLocal;
-import services.interfaces.JobsMgtSvcRemote;
 import domain.Job;
 
 /**
@@ -20,7 +19,7 @@ import domain.Job;
  */
 @Stateless
 @LocalBean
-public class JobsMgtSvc implements JobsMgtSvcRemote, JobsMgtSvcLocal {
+public class JobsMgtSvc implements JobsMgtSvcLocal {
 	@PersistenceContext
 	EntityManager em;
 
@@ -63,6 +62,19 @@ public class JobsMgtSvc implements JobsMgtSvcRemote, JobsMgtSvcLocal {
 	@Override
 	public Job addJob(Job job) {
 		return em.merge(job);
+	}
+
+	@Override
+	public List<Job> GetJobsByJobOwnerId(Integer Id) {
+		List<Job> jobs = new ArrayList<Job>();
+		try {
+			String jpql = "select j from Job j where j.jobOwner=" + Id;
+			TypedQuery<Job> typedQuery = em.createQuery(jpql, Job.class);
+			jobs = typedQuery.getResultList();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return jobs;
 	}
 
 }

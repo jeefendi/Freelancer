@@ -1,40 +1,38 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	template="/templates/freetemplate.xhtml">
+	xmlns:p="http://primefaces.org/ui">
 
-	<ui:define name="pageContent">
-		<form>
-			<p:dataTable var="job" value="#{JsB.jobs}" sortMode="multiple style"
-				tableStyle="table-layout:auto">
-				<!-- 				<p:column headerText="Id"> -->
-				<!-- 					<h:outputText value="#{job.id}" /> -->
-				<!-- 				</p:column> -->
+<h:head></h:head>
+<body>
+	<h:form>
+		<p:dataTable var="job" value="#{JsB.jobs}">
+			<!-- 				<p:column headerText="Id"> -->
+			<!-- 					<h:outputText value="#{job.id}" /> -->
+			<!-- 				</p:column> -->
 
-				<p:column headerText="Titre" sortBy="#{job.title}">
-					<h:outputText value="#{job.title}" />
-				</p:column>
+			<p:column headerText="Titre" sortBy="#{job.title}">
+				<h:outputText value="#{job.title}" />
+			</p:column>
 
-				<p:column headerText="Description" sortBy="#{job.description}">
-					<h:outputText value="#{job.description}" />
-				</p:column>
+			<p:column headerText="Description" sortBy="#{job.description}">
+				<h:outputText value="#{job.description}" />
+			</p:column>
 
-				<p:column headerText="Compétences"
-					sortBy="#{JsB.getSkillsAsString(job)}">
-					<h:outputText value="#{JsB.getSkillsAsString(job)}" />
-				</p:column>
+			<p:column headerText="Compétences"
+				sortBy="#{JsB.getSkillsAsString(job)}">
+				<h:outputText value="#{JsB.getSkillsAsString(job)}" />
+			</p:column>
 
-				<p:column headerText="Date de Début"
-					sortBy="#{job.dateOfSubmission}">
-					<h:outputText value="#{JsB.getDate(job.dateOfSubmission)}" />
-				</p:column>
-				<p:column headerText="Date de fin" sortBy="#{job.closureDate}">
-					<h:outputText value="#{JsB.getDate(job.closureDate)}" />
-				</p:column>
-			</p:dataTable>
-		</form>
-	</ui:define>
-</ui:composition>
+			<p:column headerText="Date de Début" sortBy="#{job.dateOfSubmission}">
+				<h:outputText value="#{JsB.getDate(job.dateOfSubmission)}" />
+			</p:column>
+			<p:column headerText="Date de fin" sortBy="#{job.closureDate}">
+				<h:outputText value="#{JsB.getDate(job.closureDate)}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</body>
+</html>
